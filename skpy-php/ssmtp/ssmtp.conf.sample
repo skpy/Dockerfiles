@@ -1,0 +1,9 @@
+root=postmaster
+mailhub=smtp.fastmail.com:465
+rewriteDomain=example.com
+hostname=example.com
+FromLineOverride=YES
+UseTLS=YES
+UseSTARTTLS=NO
+AuthUser=user@example.com
+AuthPass=FastMailGeneratedPassword
