@@ -4,7 +4,6 @@
     health_check 5s
   }
   cache 30
-  errors stdout
 }
 
 .:5301 {
@@ -12,12 +11,10 @@
     protocol https_google
   }
   cache 30
-  errors stdout
 }
 
 . {
   proxy . 127.0.0.1:5300 127.0.0.1:5301
-  errors stdout
   cache 300
   health
 }
