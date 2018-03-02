@@ -1,0 +1,23 @@
+.:5300 {
+  forward . tls://9.9.9.9 {
+    tls_servername dns.quad9.net
+    health_check 5s
+  }
+  cache 30
+  errors stdout
+}
+
+.:5301 {
+  proxy . 1.2.3.4:53 {
+    protocol https_google
+  }
+  cache 30
+  errors stdout
+}
+
+. {
+  proxy . 127.0.0.1:5300 127.0.0.1:5301
+  errors stdout
+  cache 300
+  health
+}
