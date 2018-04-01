@@ -7,8 +7,9 @@
 }
 
 .:5301 {
-  proxy . 1.2.3.4:53 {
-    protocol https_google
+  forward . tls://1.1.1.1 {
+    tls_servername tls.cloudflare_dns.com
+    health_check 5s
   }
   cache 30
 }
