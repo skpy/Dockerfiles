@@ -1,11 +1,13 @@
 FROM alpine:latest
+ARG UID=33
+ARG GID=33
 
 # ensure www-data user exists with uid 48 for use on Fedora
 RUN set -xe \
   delgroup xfs \
   && deluser xfs \
-  && addgroup -g 33 -S www-data \
-  && adduser -u 33 -D -S -G www-data www-data
+  && addgroup -g $GID -S www-data \
+  && adduser -u $UID -D -S -G www-data www-data
 
 RUN apk add --no-cache \
   php7 php7-fpm php7-curl php7-dom php7-gd php7-iconv php7-json \
@@ -58,7 +60,8 @@ RUN set -ex \
 # configure SSMTP and set it up for use with PHP
 COPY ssmtp/* /etc/ssmtp/
 
-VOLUME /var/www/html
+#VOLUME /var/www/html
+VOLUME /var/www
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
