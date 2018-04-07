@@ -51,12 +51,16 @@ RUN set -ex \
   } > /etc/php7/conf.d/01_opcache-recommended.ini \
   && { \
     echo 'sendmail_path = "/usr/sbin/ssmtp -t"'; \
-  } > /etc/php7/conf.d/01_sendmail.ini \
+  } > /etc/php7/conf.d/99_sendmail.ini \
   && { \
     # Add .conf file to set memory limits:
     echo 'post_max_size=12M'; \
     echo 'upload_max_filesize=10M'; \
-  } > /etc/php7/conf.d/01_memory.ini
+  } > /etc/php7/conf.d/99_memory.ini \
+  && { \
+    # increase max execution time, to allow for slower uploads
+    echo 'max_execution_time=240'; \
+  } > /etc/php7/conf.d/99_max_execution.ini
 
 # configure SSMTP and set it up for use with PHP
 COPY ssmtp/* /etc/ssmtp/
