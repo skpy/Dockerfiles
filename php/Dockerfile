@@ -10,10 +10,10 @@ RUN set -xe \
   && adduser -u $UID -D -S -G www-data www-data
 
 RUN apk add --no-cache \
-  php7 php7-fpm php7-curl php7-dom php7-exif php7-gd \
+  php7 php7-fpm php7-curl php7-ctype php7-dom php7-exif php7-gd \
   php7-iconv php7-json php7-mbstring php7-mcrypt \
   php7-mysqli php7-pcntl php7-pdo php7-pdo_mysql php7-posix \
-  php7-session php7-simplexml php7-zlib \
+  php7-session php7-simplexml php7-xml php7-zlib \
   ssmtp
 
 # set desired PHP settings
