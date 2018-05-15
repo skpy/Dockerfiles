@@ -4,7 +4,7 @@ This Dockerfile creates a CoreDNS instance that listens to 53/tcp and 53/udp, an
 
 This allows you to have a little more privacy in your DNS queries, since DNS is usually a plaintext protocol.
 
-Older iterations of this setup used Google's [DNS-over-HTTPS](https://developers.google.com/speed/public-dns/docs/dns-over-https). DNS-over-HTTPS is still in draft status, and while both Google and CLoudFlare support it, CoreDNS's support for it is still evolving.  DNS over TLS is preferred at this time.
+Older iterations of this setup used Google's [DNS-over-HTTPS](https://developers.google.com/speed/public-dns/docs/dns-over-https). DNS-over-HTTPS is still in draft status, and while both Google and CloudFlare support it, CoreDNS's support for it is still evolving.  DNS over TLS is preferred at this time.
 
 ```
 docker build -t private-coredns .

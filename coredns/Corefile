@@ -1,5 +1,5 @@
 .:5300 {
-  forward . tls://9.9.9.9 {
+  forward . tls://9.9.9.9 tls://149.112.112.112 {
     tls_servername dns.quad9.net
     health_check 5s
   }
@@ -7,7 +7,7 @@
 }
 
 .:5301 {
-  forward . tls://1.1.1.1 {
+  forward . tls://1.1.1.1 tls://1.0.0.1 {
     tls_servername tls.cloudflare_dns.com
     health_check 5s
   }
